@@ -18,6 +18,6 @@ TypeScript file included.
 
 ## Screenshots  
 ### Generate Password
-![Generate Password Screenshot](assets\generate-screenshot.png)  
+![Generate Password Screenshot](assets/generate-screenshot.png)  
 ### Password Generation Options  
-![Password Options](assets\password-options-screenshot.png)
+![Password Options](assets/password-options-screenshot.png)
