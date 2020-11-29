@@ -41,14 +41,12 @@ function writePassword() {
 }
 
 var charBounds = [
+  // [lowerBound, upperBound]
   [0],
   [97, 122], //lowercase
   [65, 90], //uppercase
   [48, 57], //numeric
-  [32, 47], //special characters
-  [58, 64], //special characters
-  [91, 96], //special characters
-  [123, 126], //special characters
+  [32, 47, 58, 64, 91, 96, 123, 126], //special characters
 ];
 
 function generatePassword(): string {
@@ -61,7 +59,7 @@ function generatePassword(): string {
 
   /* validate user input */
   console.log(passwordLength);
-  if (passwordLength === NaN || passwordLength < 8 || passwordLength > 128) {
+  if (isNaN(passwordLength) || passwordLength < 8 || passwordLength > 128) {
     alert("Please insert a valid length for your password!");
     return undefined;
   }
@@ -71,30 +69,37 @@ function generatePassword(): string {
   }
 
   var filterCharBound = [
-    1 * isLowerCase * isMixedCase,
-    2 * isUpperCase * isMixedCase,
-    3 * hasNumeric,
-    4 * hasSpecialChar,
-    5 * hasSpecialChar,
-    6 * hasSpecialChar,
-    7 * hasSpecialChar,
+    //array with positions of charBounds indexes (1 = lowercase, 2 = uppercase, ...)
+    // logic to make an array element less than 0 based off password generation parameters
+    // (e.g. if lowercase is not selected, filterCharBound[0]=1*isLowerCase*isMixedCase --> filterCharBound[0]=1*-1*1 --> filterCharBound[0]=-1.
+
+    1 * isLowerCase * isMixedCase, // returns 1 if lowercase or multicase is selected, else -1
+    2 * isUpperCase * isMixedCase, // returns 2 if uppercase or multicase is selected, else -2
+    3 * hasNumeric, //returns 3 if numeric is selected, else -3.
+    4 * hasSpecialChar, //returns 5 if numeric is selected, else -4
   ];
   filterCharBound = filterCharBound.filter(function (value, index, array) {
+    // filters the previous array with positive numbers only, results in an array with charBound indexes of user allowed characters
     return value > 0;
   });
 
   var generatedPassword = "";
   for (var n = 0; n < passwordLength; n++) {
-    var rCharBound = getRandomInt(0, filterCharBound.length - 1);
-    rCharBound = filterCharBound[rCharBound];
+    //Generate the password string
+    var rCharBound = getRandomInt(0, filterCharBound.length - 1); //random index of filtered array
+    rCharBound = filterCharBound[rCharBound]; //returns the charBound index at random index of filtered arra
+    var isSpecialChar = rCharBound === 4 ? getRandomInt(0, 3) * 2 : 0;
     generatedPassword =
-      generatedPassword +
+      generatedPassword + // adds characted to password string
       String.fromCharCode(
-        getRandomInt(charBounds[rCharBound][0], charBounds[rCharBound][1])
+        //converts below number to ASCI character
+        getRandomInt(
+          charBounds[rCharBound][isSpecialChar],
+          charBounds[rCharBound][isSpecialChar + 1]
+        ) //random number between lower and upper bound that has been passed through
       );
   }
 
-  console.log("random password: " + generatedPassword);
   return generatedPassword;
 }
 
