@@ -72,7 +72,6 @@ function generatePassword(): string {
     //array with positions of charBounds indexes (1 = lowercase, 2 = uppercase, ...)
     // logic to make an array element less than 0 based off password generation parameters
     // (e.g. if lowercase is not selected, filterCharBound[0]=1*isLowerCase*isMixedCase --> filterCharBound[0]=1*-1*1 --> filterCharBound[0]=-1.
-
     1 * isLowerCase * isMixedCase, // returns 1 if lowercase or multicase is selected, else -1
     2 * isUpperCase * isMixedCase, // returns 2 if uppercase or multicase is selected, else -2
     3 * hasNumeric, //returns 3 if numeric is selected, else -3.
