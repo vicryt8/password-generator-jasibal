@@ -42,7 +42,7 @@ function writePassword():void {
 
 var charBounds = [
   // [lowerBound, upperBound]
-  [0],
+  [0], // unused
   [97, 122], //lowercase
   [65, 90], //uppercase
   [48, 57], //numeric
