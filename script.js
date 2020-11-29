@@ -44,7 +44,6 @@ function generatePassword() {
   var isMixedCase = mixedcaseInput.checked ? -1 : 1;
   var hasNumeric = numericInput.checked ? 1 : -1;
   var hasSpecialChar = specialCharInput.checked ? 1 : -1;
-  console.log(passwordLength);
   if (isNaN(passwordLength) || passwordLength < 8 || passwordLength > 128) {
     alert("Please insert a valid length for your password!");
     return undefined;

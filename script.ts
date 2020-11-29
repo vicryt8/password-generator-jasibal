@@ -31,7 +31,7 @@ function resetDefault(): void {
 }
 
 // Write password to the #password input
-function writePassword() {
+function writePassword():void {
   var password = generatePassword();
   if (password !== undefined) {
     var passwordText: HTMLElement = document.querySelector("#password");
@@ -59,7 +59,6 @@ function generatePassword(): string {
   var hasSpecialChar = specialCharInput.checked ? 1 : -1;
 
   /* validate user input */
-  console.log(passwordLength);
   if (isNaN(passwordLength) || passwordLength < 8 || passwordLength > 128) {
     alert("Please insert a valid length for your password!");
     return undefined;
