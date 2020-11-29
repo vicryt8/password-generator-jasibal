@@ -50,6 +50,7 @@ var charBounds = [
 ];
 
 function generatePassword(): string {
+  // convert checkbox values to logical values
   var passwordLength = Number(lengthInput.value);
   var isLowerCase = lowercaseInput.checked ? 1 : -1;
   var isUpperCase = uppercaseInput.checked ? 1 : -1;
