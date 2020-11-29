@@ -87,7 +87,7 @@ function generatePassword(): string {
   for (var n = 0; n < passwordLength; n++) {
     //Generate the password string
     var rCharBound = getRandomInt(0, filterCharBound.length - 1); //random index of filtered array
-    rCharBound = filterCharBound[rCharBound]; //returns the charBound index at random index of filtered arra
+    rCharBound = filterCharBound[rCharBound]; //returns the charBound index at random index of filtered array
     var isSpecialChar = rCharBound === 4 ? getRandomInt(0, 3) * 2 : 0;
     generatedPassword =
       generatedPassword + // adds characted to password string
