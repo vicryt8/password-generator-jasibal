@@ -10,7 +10,7 @@ Password options:
 * Numeric characters
 * Special characters 
 
-TypeScript file included.
+See included TypeScript file for code explanation/comments.
 
 ## Links
 [Project Page](https://vicryt8.github.io/password-generator-jasibal/)   
