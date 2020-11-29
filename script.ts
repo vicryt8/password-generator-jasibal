@@ -76,7 +76,7 @@ function generatePassword(): string {
     1 * isLowerCase * isMixedCase, // returns 1 if lowercase or multicase is selected, else -1
     2 * isUpperCase * isMixedCase, // returns 2 if uppercase or multicase is selected, else -2
     3 * hasNumeric, //returns 3 if numeric is selected, else -3.
-    4 * hasSpecialChar, //returns 5 if numeric is selected, else -4
+    4 * hasSpecialChar, //returns 4 if numeric is selected, else -4
   ];
   filterCharBound = filterCharBound.filter(function (value, index, array) {
     // filters the previous array with positive numbers only, results in an array with charBound indexes of user allowed characters
