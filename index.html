@@ -10,22 +10,69 @@
 </head>
 
 <body>
-  <div class="wrapper">
-    <header>
-      <h1>Password Generator</h1>
-    </header>
-    <div class="card">
+  <div class="content">
+    <div class="wrapper" id="password-view">
+      <header>
+        <h1>Password Generator</h1>
+      </header>
+      <div class="card">
+        <div class="card-header">
+          <h2>Generate a Password</h2>
+        </div>
+        <div class="card-body">
+          <textarea readonly id="password" placeholder="Your Secure Password"
+            aria-label="Generated Password"></textarea>
+        </div>
+        <div class="card-footer">
+          <button id="generate" class="btn">Generate Password</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card popup-form" id="criteriaForm">
       <div class="card-header">
-        <h2>Generate a Password</h2>
+        <h2>Password Options</h2>
       </div>
       <div class="card-body">
-        <textarea readonly id="password" placeholder="Your Secure Password" aria-label="Generated Password"></textarea>
+        <form class="form-container" id="myForm">
+          <h4>Enter a password length between 8 and 128</h4>
+          <input type="text" id="password-length" class="text-input">
+
+          <h4>Check all that apply</h4>
+
+          <label for="lowercase" class="option-container">Lowercase
+            <input type="radio" id="lowercase" name="Im-on-the-case">
+            <span class="radio"></span>
+          </label>
+
+          <label for="uppercase" class="option-container">Uppercase
+            <input type="radio" id="uppercase" name="Im-on-the-case">
+            <span class="radio"></span>
+          </label>
+
+          <label for="mixedcase" class="option-container">Mixed Case
+            <input type="radio" id="mixedcase" name="Im-on-the-case">
+            <span class="radio"></span>
+          </label>
+
+          <label for="numeric" class="option-container">Numeric
+            <input type="checkbox" id="numeric">
+            <span class="checkmark"></span>
+          </label>
+
+          <label for="specialChar" class="option-container">Special Characters
+            <input type="checkbox" id="specialChar">
+            <span class="checkmark"></span>
+          </label>
+        </form>
       </div>
       <div class="card-footer">
-        <button id="generate" class="btn">Generate Password</button>
+        <button id="submit" class="btn">Submit</button>
+        <button id="cancel" class="btn red-btn">Cancel</button>
       </div>
     </div>
   </div>
+
   <script src="script.js"></script>
 </body>
 
