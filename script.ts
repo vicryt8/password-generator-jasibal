@@ -9,10 +9,14 @@ var mixedcaseInput: HTMLInputElement = document.querySelector("#mixedcase");
 var numericInput: HTMLInputElement = document.querySelector("#numeric");
 var specialCharInput: HTMLInputElement = document.querySelector("#specialChar");
 
-// Add event listener to generate button
-generateBtn.addEventListener("click", showCriteriaForm);
-cancelBtn.addEventListener("click", resetDefault);
-submitBtn.addEventListener("click", writePassword);
+var charBounds = [
+  // [lowerBound, upperBound]
+  [0],
+  [97, 122], //lowercase
+  [65, 90], //uppercase
+  [48, 57], //numeric
+  [32, 47, 58, 64, 91, 96, 123, 126], //special characters
+];
 
 // Form functions
 function showCriteriaForm(): void {
@@ -39,15 +43,6 @@ function writePassword():void {
     resetDefault();
   }
 }
-
-var charBounds = [
-  // [lowerBound, upperBound]
-  [0],
-  [97, 122], //lowercase
-  [65, 90], //uppercase
-  [48, 57], //numeric
-  [32, 47, 58, 64, 91, 96, 123, 126], //special characters
-];
 
 function generatePassword(): string {
   // convert checkbox values to logical values
@@ -105,3 +100,9 @@ function generatePassword(): string {
 function getRandomInt(min: number, max: number): number {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
+
+
+// Add event listener to generate button
+generateBtn.addEventListener("click", showCriteriaForm);
+cancelBtn.addEventListener("click", resetDefault);
+submitBtn.addEventListener("click", writePassword);

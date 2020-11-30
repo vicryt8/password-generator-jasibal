@@ -7,9 +7,13 @@ var uppercaseInput = document.querySelector("#uppercase");
 var mixedcaseInput = document.querySelector("#mixedcase");
 var numericInput = document.querySelector("#numeric");
 var specialCharInput = document.querySelector("#specialChar");
-generateBtn.addEventListener("click", showCriteriaForm);
-cancelBtn.addEventListener("click", resetDefault);
-submitBtn.addEventListener("click", writePassword);
+var charBounds = [
+  [0],
+  [97, 122],
+  [65, 90],
+  [48, 57],
+  [32, 47, 58, 64, 91, 96, 123, 126],
+];
 function showCriteriaForm() {
   document.getElementById("password-view").style.display = "none";
   document.getElementById("criteriaForm").style.display = "block";
@@ -30,13 +34,6 @@ function writePassword() {
     resetDefault();
   }
 }
-var charBounds = [
-  [0],
-  [97, 122],
-  [65, 90],
-  [48, 57],
-  [32, 47, 58, 64, 91, 96, 123, 126],
-];
 function generatePassword() {
   var passwordLength = Number(lengthInput.value);
   var isLowerCase = lowercaseInput.checked ? 1 : -1;
@@ -80,3 +77,6 @@ function generatePassword() {
 function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
+generateBtn.addEventListener("click", showCriteriaForm);
+cancelBtn.addEventListener("click", resetDefault);
+submitBtn.addEventListener("click", writePassword);
