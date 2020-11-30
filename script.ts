@@ -34,7 +34,7 @@ function resetDefault(): void {
   hideCriteriaForm();
 }
 
-// Write password to the #password input
+//Write password to the #password input
 function writePassword():void {
   var password = generatePassword();
   if (password !== undefined) {
@@ -100,7 +100,6 @@ function generatePassword(): string {
 function getRandomInt(min: number, max: number): number {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
-
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", showCriteriaForm);
